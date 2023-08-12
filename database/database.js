@@ -5,12 +5,11 @@ const connection = new Sequelize(
   process.env.DB_NAME,
   process.env.DB_USER,
   process.env.DB_PASSWORD,
-  process.env.DB_PORT,
   {
 
     host: process.env.DB_HOST, // Host do banco de dados
-    port: process.env.DB_PORT,
     dialect: "mysql", // Dialeto do banco de dados (MySQL)
+    port: process.env.DB_PORT
   }
 );
 
