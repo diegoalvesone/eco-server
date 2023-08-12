@@ -1,15 +1,20 @@
 const { Sequelize } = require("sequelize");
-
+const DB = 'railway';
+const USER = 'root';
+const PASSWORD = 'kLQAaW2doPgo5ejWbly0';
+const HOST = 'containers-us-west-128.railway.app';
+const DIALECT = 'mysql';
+const PORT = 6438;
 // Configuração da conexão com o banco de dados
 const connection = new Sequelize(
-  process.env.DB_NAME,
-  process.env.DB_USER,
-  process.env.DB_PASSWORD,
+  DB,
+  USER,
+  PASSWORD,
   {
 
-    host: process.env.DB_HOST, // Host do banco de dados
-    dialect: "mysql", // Dialeto do banco de dados (MySQL)
-    port: process.env.DB_PORT
+    host: HOST, // Host do banco de dados
+    dialect: DIALECT, // Dialeto do banco de dados (MySQL)
+    port: PORT
   }
 );
 
