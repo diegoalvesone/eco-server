@@ -25,7 +25,7 @@ async function authenticate(connection) {
     await connection.authenticate();
     console.log("Conexão estabelecida com sucesso!");
   } catch (err) {
-    console.log(process.env.DB_HOST);
+    console.log(HOST);
     console.log("Um erro inesperado aconteceu: ", err);
   }
 }

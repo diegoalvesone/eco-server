@@ -35,21 +35,21 @@ app.listen(3001, async () => {
 
   // Checar se o admin já existe na base de dados
   const admin = await Administrador.findOne({
-    where: { email: process.env.ADMIN_EMAIL },
+    where: { email: 'admin@email.com' },
   });
   // Crypto da senha
   const SALT_ROUNDS = 10;
-  let senhaCrypto = process.env.ADMIN_PASSWORD
+  let senhaCrypto = '12345678'
   senhaCrypto = await bcrypt.hash(senhaCrypto, SALT_ROUNDS);
 
   if (!admin) {
     // Create the admin user if it doesn't exist
 
     await Administrador.create({
-      nome: process.env.ADMIN_NAME,
-      email: process.env.ADMIN_EMAIL,
+      nome: 'admin',
+      email: 'admin@email.com',
       senha: senhaCrypto,
-      tipo: process.env.ADMIN_TIPO,
+      tipo: 'administrador',
     });
   }
 });
