@@ -5,9 +5,11 @@ const connection = new Sequelize(
   process.env.DB_NAME,
   process.env.DB_USER,
   process.env.DB_PASSWORD,
+  process.env.DB_PORT,
   {
 
     host: process.env.DB_HOST, // Host do banco de dados
+    port: process.env.DB_PORT,
     dialect: "mysql", // Dialeto do banco de dados (MySQL)
   }
 );
@@ -19,7 +21,7 @@ async function authenticate(connection) {
     await connection.authenticate();
     console.log("Conexão estabelecida com sucesso!");
   } catch (err) {
-
+    console.log(process.env.DB_HOST);
     console.log("Um erro inesperado aconteceu: ", err);
   }
 }
